@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
+use Exception;
 
 class PostController extends Controller
 {
@@ -84,5 +85,23 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    static public function dadesbarri($id)
+    {
+        //
+        try {
+            $dadesbarri = Post::findOrFail($id);
+            return response()->json([
+                        "status" => "OK",
+                        "id" => $id,
+                        "dadesbarri" => $dadesbarri,
+                    ]);
+        } catch (Exception $e) {
+            return response()->json([
+                        "status" => "ERROR",
+                        "message" => $e->getMessage()
+                    ]);
+        }
     }
 }
