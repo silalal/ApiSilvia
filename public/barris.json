@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "Trimestre": 1,
+    "Codi_Districte": 1,
+    "Nom_Districte": "Ciutat Vella",
+    "Codi_Barri": 1,
+    "Nom_Barri": "el Raval",
+    "Lloguer_mitja": "Lloguer mitj\u00e0 mensual (Euros\/mes)",
+    "Preu": 759.2,
+    "created_at": "2022-05-24T13:49:47.000000Z",
+    "updated_at": "2022-05-24T13:49:47.000000Z"
+}

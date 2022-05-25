@@ -21,3 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('posts',PostController::class);
+
+Route::get('posts/download/{id}',[PostController::class,'dadesbarri'])->name('dadesbarri');
+
+Route::get('posts/mostrar/{preu}',[PostController::class,'mostraDades'])->name('mostraDades');

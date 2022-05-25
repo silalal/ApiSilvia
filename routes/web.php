@@ -20,5 +20,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('laravel-json', [JsonController::class, 'index']);
-Route::post('json-file-download', [JsonController::class, 'download']);

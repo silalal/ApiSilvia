@@ -53,6 +53,10 @@ class PostController extends Controller
         return Post::findOrFail($id);
     }
 
+    public function mostraDades($preu){
+        return Post::where('Preu', $preu)->pluck('Nom_Barri');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -90,18 +94,15 @@ class PostController extends Controller
     static public function dadesbarri($id)
     {
         //
-        try {
+      
             $dadesbarri = Post::findOrFail($id);
-            return response()->json([
-                        "status" => "OK",
-                        "id" => $id,
-                        "dadesbarri" => $dadesbarri,
-                    ]);
-        } catch (Exception $e) {
-            return response()->json([
-                        "status" => "ERROR",
-                        "message" => $e->getMessage()
-                    ]);
-        }
+            $filename = "barris.json";
+
+            $handle = fopen($filename,'w+');
+            fputs($handle, $dadesbarri->toJson(JSON_PRETTY_PRINT));
+            fclose($handle);
+            $headers = array('Content-type'=>'application/json');
+            return response()->download($filename, 'barris.json', $headers);
+
     }
 }
